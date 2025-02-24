@@ -1,0 +1,3 @@
+[submodule "notebooks/Generative-AI-for-Backend-Devs-Student-Guide.git"]
+	path = notebooks/Generative-AI-for-Backend-Devs-Student-Guide.git
+	url = git@github.com:Pythondeveloper6/Generative-AI-for-Backend-Devs-Student-Guide.git

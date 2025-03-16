@@ -11,3 +11,17 @@ services:
       - ./notebooks:/opt/notebooks  # Persist notebooks outside the container
     tty: true  # Equivalent to -t (allocate a pseudo-TTY)
     stdin_open: true  # Equivalent to -i (keep STDIN open)
+
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama_server
+    env_file:
+      - .env
+    ports:
+      - "11434:11434"          # Expose Ollama API port
+    volumes:
+      - "./volumes/ollama_data:/root/.ollama"  # Persist model data
+      - "./entrypoint.sh:/entrypoint.sh"
+    restart: unless-stopped
+    entrypoint: ["/bin/bash", "/entrypoint.sh"]  # Override default entrypoint
